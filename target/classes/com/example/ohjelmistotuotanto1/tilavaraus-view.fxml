@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ohjelmistotuotanto1.TilavarausController">
+   <TabPane prefHeight="700.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">
+     <tabs>
+         <Tab text="Asiakashallinta">
+           <content>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <HBox alignment="CENTER_LEFT" prefHeight="621.0" prefWidth="856.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                           <VBox prefHeight="200.0" prefWidth="450.0" style="-fx-padding: 20;" styleClass="asiakas_text-field">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Asiakashallinta">
+                                    <font>
+                                       <Font size="20.0" />
+                                    </font>
+                                 </Text>
+                                 <TextField text="Hae asiakasta...">
+                                    <VBox.margin>
+                                       <Insets top="20.0" />
+                                    </VBox.margin>
+                                 </TextField>
+                                 <ListView fx:id="asiakasListView" prefHeight="200.0" prefWidth="200.0">
+                                    <VBox.margin>
+                                       <Insets top="10.0" />
+                                    </VBox.margin>
+                                 </ListView>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Asiakkaan tiedot">
+                                    <VBox.margin>
+                                       <Insets bottom="5.0" top="20.0" />
+                                    </VBox.margin>
+                                    <font>
+                                       <Font size="18.0" />
+                                    </font>
+                                 </Text>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nimi">
+                                    <VBox.margin>
+                                       <Insets top="5.0" />
+                                    </VBox.margin>
+                                 </Text>
+                                 <TextField fx:id="asiakkaanNimi">
+                                    <VBox.margin>
+                                       <Insets bottom="10.0" top="5.0" />
+                                    </VBox.margin>
+                                 </TextField>
+                                 <Text layoutX="30.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sähköposti">
+                                    <VBox.margin>
+                                       <Insets bottom="5.0" />
+                                    </VBox.margin>
+                                 </Text>
+                                 <TextField fx:id="asiakkaanEmail" layoutX="30.0" layoutY="377.0">
+                                    <VBox.margin>
+                                       <Insets bottom="10.0" />
+                                    </VBox.margin>
+                                 </TextField>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Puhelinnumero">
+                                    <VBox.margin>
+                                       <Insets bottom="5.0" />
+                                    </VBox.margin>
+                                 </Text>
+                                 <TextField fx:id="asiakkaanPuh">
+                                    <VBox.margin>
+                                       <Insets bottom="10.0" />
+                                    </VBox.margin>
+                                 </TextField>
+                                 <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                       <VBox prefHeight="100.0" prefWidth="195.0">
+                                          <children>
+                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Osoite">
+                                                <VBox.margin>
+                                                   <Insets bottom="5.0" />
+                                                </VBox.margin>
+                                             </Text>
+                                             <TextField fx:id="asiakkaanOsoite">
+                                                <VBox.margin>
+                                                   <Insets bottom="10.0" />
+                                                </VBox.margin>
+                                             </TextField>
+                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Postinumero">
+                                                <VBox.margin>
+                                                   <Insets bottom="5.0" />
+                                                </VBox.margin>
+                                             </Text>
+                                             <TextField fx:id="asiakkaanPostinumero">
+                                                <VBox.margin>
+                                                   <Insets bottom="10.0" />
+                                                </VBox.margin>
+                                             </TextField>
+                                          </children>
+                                          <padding>
+                                             <Insets right="10.0" />
+                                          </padding>
+                                       </VBox>
+                                       <VBox prefHeight="100.0" prefWidth="214.0">
+                                          <children>
+                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kaupunki">
+                                                <VBox.margin>
+                                                   <Insets bottom="5.0" />
+                                                </VBox.margin>
+                                             </Text>
+                                             <TextField fx:id="asiakkaanKaupunki" />
+                                          </children>
+                                          <padding>
+                                             <Insets left="10.0" />
+                                          </padding>
+                                       </VBox>
+                                    </children>
+                                 </HBox>
+                                 <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                                   <buttons>
+                                     <Button mnemonicParsing="false" onAction="#tallennaAsiakas" text="Tallenna" />
+                                       <Button mnemonicParsing="false" onAction="#poistaAsiakas" text="Poista" />
+                                       <Button fx:id="lisaaUusi" mnemonicParsing="false" onAction="#lisaaUusiPressed" text="Lisää uusi" />
+                                   </buttons>
+                                 </ButtonBar>
+                              </children>
+                              <padding>
+                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                              </padding>
+                           </VBox>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="646.0" stroke="#d7d6d6" strokeType="INSIDE" width="2.0" />
+                           <VBox prefHeight="200.0" prefWidth="450.0" style="-fx-padding: 20;">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Asiakkaan varaukset">
+                                    <font>
+                                       <Font size="20.0" />
+                                    </font>
+                                 </Text>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Varauslistaus">
+                                    <font>
+                                       <Font size="17.0" />
+                                    </font>
+                                    <VBox.margin>
+                                       <Insets top="20.0" />
+                                    </VBox.margin>
+                                 </Text>
+                                 <ListView prefHeight="263.0" prefWidth="409.0">
+                                    <VBox.margin>
+                                       <Insets bottom="20.0" top="14.0" />
+                                    </VBox.margin>
+                                 </ListView>
+                                 <Button mnemonicParsing="false" text="Avaa valitun varauksen tiedot varausten hallinnassa" />
+                              </children>
+                           </VBox>
+                        </children>
+                     </HBox>
+                  </children>
+               </AnchorPane>
+           </content>
+         </Tab>
+         <Tab text="Varausten hallinta">
+            <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <HBox alignment="CENTER_LEFT" prefHeight="621.0" prefWidth="856.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                           <VBox prefHeight="200.0" prefWidth="450.0" style="-fx-padding: 20;" styleClass="asiakas_text-field">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Varaukset">
+                                    <font>
+                                       <Font size="20.0" />
+                                    </font>
+                                 </Text>
+                                 <TextField text="Haku varauksille">
+                                    <VBox.margin>
+                                       <Insets top="20.0" />
+                                    </VBox.margin>
+                                 </TextField>
+                                 <ListView prefHeight="530.0" prefWidth="409.0">
+                                    <VBox.margin>
+                                       <Insets top="10.0" />
+                                    </VBox.margin>
+                                 </ListView>
+                              </children>
+                              <padding>
+                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                              </padding>
+                           </VBox>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="646.0" stroke="#d7d6d6" strokeType="INSIDE" width="2.0" />
+                           <VBox prefHeight="200.0" prefWidth="450.0">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Varauksen tiedot">
+                                    <font>
+                                       <Font size="20.0" />
+                                    </font>
+                                    <VBox.margin>
+                                       <Insets bottom="20.0" />
+                                    </VBox.margin>
+                                 </Text>
+                                 <VBox prefHeight="298.0" prefWidth="403.0">
+                                    <children>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sijainti">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <TextField editable="false">
+                                          <opaqueInsets>
+                                             <Insets bottom="15.0" />
+                                          </opaqueInsets>
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Varatun tilan nimi" />
+                                       <TextField prefWidth="172.0">
+                                          <opaqueInsets>
+                                             <Insets bottom="15.0" />
+                                          </opaqueInsets>
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alkamisaika ja päättymisaika">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <TextField prefHeight="26.0" prefWidth="235.0" text="&quot;12.04.2023 12:00 - 12.04.2023 14:00&quot;">
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Varaajan nimi">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <TextField>
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <HBox prefHeight="100.0" prefWidth="200.0">
+                                          <children>
+                                             <VBox prefHeight="59.0" prefWidth="203.0">
+                                                <children>
+                                                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sähköpostiosoite" wrappingWidth="97.1015625">
+                                                      <VBox.margin>
+                                                         <Insets bottom="5.0" />
+                                                      </VBox.margin>
+                                                   </Text>
+                                                   <TextField prefWidth="193.0">
+                                                      <VBox.margin>
+                                                         <Insets bottom="10.0" />
+                                                      </VBox.margin>
+                                                   </TextField>
+                                                </children>
+                                                <HBox.margin>
+                                                   <Insets right="20.0" />
+                                                </HBox.margin>
+                                             </VBox>
+                                             <VBox prefHeight="57.0" prefWidth="210.0">
+                                                <children>
+                                                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Puhelinnumero" wrappingWidth="97.1015625">
+                                                      <VBox.margin>
+                                                         <Insets bottom="5.0" />
+                                                      </VBox.margin>
+                                                   </Text>
+                                                   <TextField />
+                                                </children>
+                                             </VBox>
+                                          </children>
+                                       </HBox>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lisätietoja">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <TextArea prefHeight="70.0" prefWidth="403.0" text="Lopulliset kentät muodostetaan tietokannan pohjalta.">
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextArea>
+                                       <MenuButton mnemonicParsing="false" text="Valitut palvelut">
+                                          <items>
+                                             <RadioMenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                             <RadioMenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                          </items>
+                                       </MenuButton>
+                                       <HBox prefHeight="39.0" prefWidth="403.0">
+                                          <children>
+                                             <Button mnemonicParsing="false" text="Tallennä / Lisää uusi">
+                                                <HBox.margin>
+                                                   <Insets right="10.0" />
+                                                </HBox.margin>
+                                             </Button>
+                                             <Button mnemonicParsing="false" text="Poista">
+                                                <HBox.margin>
+                                                   <Insets left="10.0" right="10.0" />
+                                                </HBox.margin>
+                                             </Button>
+                                             <Button mnemonicParsing="false" text="Button">
+                                                <HBox.margin>
+                                                   <Insets left="10.0" right="10.0" />
+                                                </HBox.margin>
+                                             </Button>
+                                          </children>
+                                          <VBox.margin>
+                                             <Insets top="15.0" />
+                                          </VBox.margin>
+                                       </HBox>
+                                    </children>
+                                 </VBox>
+                              </children>
+                              <padding>
+                                 <Insets left="20.0" right="20.0" top="20.0" />
+                              </padding>
+                           </VBox>
+                        </children>
+                     </HBox>
+                  </children>
+               </AnchorPane>
+            </content>
+         </Tab>
+         <Tab text="Tilojen hallinta">
+            <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <HBox alignment="CENTER_LEFT" prefHeight="621.0" prefWidth="856.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                           <VBox prefHeight="200.0" prefWidth="450.0" style="-fx-padding: 20;" styleClass="asiakas_text-field">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tilat">
+                                    <font>
+                                       <Font size="20.0" />
+                                    </font>
+                                 </Text>
+                                 <TextField text="Haku tiloille">
+                                    <VBox.margin>
+                                       <Insets top="20.0" />
+                                    </VBox.margin>
+                                 </TextField>
+                                 <ListView prefHeight="149.0" prefWidth="409.0">
+                                    <VBox.margin>
+                                       <Insets top="10.0" />
+                                    </VBox.margin>
+                                 </ListView>
+                                 <VBox prefHeight="426.0" prefWidth="409.0">
+                                    <children>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tilan tiedot">
+                                          <font>
+                                             <Font size="20.0" />
+                                          </font>
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sijainti (esim. Tiedepuisto Joensuu)">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <TextField editable="false">
+                                          <opaqueInsets>
+                                             <Insets bottom="15.0" />
+                                          </opaqueInsets>
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tilan nimi" />
+                                       <TextField prefWidth="172.0">
+                                          <opaqueInsets>
+                                             <Insets bottom="15.0" />
+                                          </opaqueInsets>
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Osoite">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <TextField prefHeight="26.0" prefWidth="235.0">
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <HBox prefHeight="48.0" prefWidth="409.0">
+                                          <children>
+                                             <VBox prefHeight="59.0" prefWidth="191.0">
+                                                <children>
+                                                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kaupunki" wrappingWidth="97.1015625">
+                                                      <VBox.margin>
+                                                         <Insets bottom="5.0" />
+                                                      </VBox.margin>
+                                                   </Text>
+                                                   <TextField prefWidth="193.0">
+                                                      <VBox.margin>
+                                                         <Insets bottom="10.0" />
+                                                      </VBox.margin>
+                                                   </TextField>
+                                                </children>
+                                                <HBox.margin>
+                                                   <Insets right="20.0" />
+                                                </HBox.margin>
+                                             </VBox>
+                                             <VBox prefHeight="57.0" prefWidth="210.0">
+                                                <children>
+                                                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Postinumero" wrappingWidth="97.1015625">
+                                                      <VBox.margin>
+                                                         <Insets bottom="5.0" />
+                                                      </VBox.margin>
+                                                   </Text>
+                                                   <TextField />
+                                                </children>
+                                             </VBox>
+                                          </children>
+                                       </HBox>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lisätietoja">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <TextArea prefHeight="67.0" prefWidth="409.0" text="Lopulliset kentät muodostetaan tietokannan pohjalta.">
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextArea>
+                                       <MenuButton mnemonicParsing="false" text="Tilassa tarjolla olevat lisäpalvelut">
+                                          <items>
+                                             <RadioMenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                             <RadioMenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                          </items>
+                                       </MenuButton>
+                                       <HBox prefHeight="39.0" prefWidth="403.0">
+                                          <children>
+                                             <Button mnemonicParsing="false" text="Tallennä / Lisää uusi">
+                                                <HBox.margin>
+                                                   <Insets right="10.0" />
+                                                </HBox.margin>
+                                             </Button>
+                                             <Button mnemonicParsing="false" text="Poista">
+                                                <HBox.margin>
+                                                   <Insets left="10.0" right="10.0" />
+                                                </HBox.margin>
+                                             </Button>
+                                          </children>
+                                          <VBox.margin>
+                                             <Insets top="15.0" />
+                                          </VBox.margin>
+                                       </HBox>
+                                    </children>
+                                    <VBox.margin>
+                                       <Insets top="10.0" />
+                                    </VBox.margin>
+                                 </VBox>
+                              </children>
+                              <padding>
+                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                              </padding>
+                           </VBox>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="646.0" stroke="#d7d6d6" strokeType="INSIDE" width="2.0" />
+                           <VBox prefHeight="200.0" prefWidth="450.0">
+                              <children>
+                                 <VBox prefHeight="619.0" prefWidth="409.0">
+                                    <children>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tilan tulevat varaukset">
+                                          <font>
+                                             <Font size="20.0" />
+                                          </font>
+                                          <VBox.margin>
+                                             <Insets bottom="15.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <ListView prefHeight="299.0" prefWidth="409.0">
+                                          <VBox.margin>
+                                             <Insets bottom="20.0" />
+                                          </VBox.margin>
+                                       </ListView>
+                                       <Button mnemonicParsing="false" text="Avaa valitun varauksen tiedot varausten hallinnassa" />
+                                    </children>
+                                 </VBox>
+                              </children>
+                              <padding>
+                                 <Insets left="20.0" right="20.0" top="20.0" />
+                              </padding>
+                           </VBox>
+                        </children>
+                     </HBox>
+                  </children>
+               </AnchorPane>
+            </content>
+         </Tab>
+         <Tab text="Palveluiden hallinta">
+            <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <HBox alignment="CENTER_LEFT" prefHeight="621.0" prefWidth="856.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                           <VBox prefHeight="200.0" prefWidth="450.0" style="-fx-padding: 20;" styleClass="asiakas_text-field">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Palvelut">
+                                    <font>
+                                       <Font size="20.0" />
+                                    </font>
+                                 </Text>
+                                 <TextField text="Haku lisäpalveluille">
+                                    <VBox.margin>
+                                       <Insets top="20.0" />
+                                    </VBox.margin>
+                                 </TextField>
+                                 <ListView prefHeight="530.0" prefWidth="409.0">
+                                    <VBox.margin>
+                                       <Insets top="10.0" />
+                                    </VBox.margin>
+                                 </ListView>
+                              </children>
+                              <padding>
+                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                              </padding>
+                           </VBox>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="646.0" stroke="#d7d6d6" strokeType="INSIDE" width="2.0" />
+                           <VBox prefHeight="200.0" prefWidth="450.0">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Palvelun tiedot">
+                                    <font>
+                                       <Font size="20.0" />
+                                    </font>
+                                    <VBox.margin>
+                                       <Insets bottom="20.0" />
+                                    </VBox.margin>
+                                 </Text>
+                                 <VBox prefHeight="298.0" prefWidth="403.0">
+                                    <children>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nimi">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <TextField editable="false">
+                                          <opaqueInsets>
+                                             <Insets bottom="15.0" />
+                                          </opaqueInsets>
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Palvelun hinta (eur)" />
+                                       <TextField prefWidth="172.0">
+                                          <opaqueInsets>
+                                             <Insets bottom="15.0" />
+                                          </opaqueInsets>
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lisätietoja">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <TextArea prefHeight="70.0" prefWidth="403.0" text="Lopulliset kentät muodostetaan tietokannan pohjalta.">
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextArea>
+                                       <HBox prefHeight="39.0" prefWidth="403.0">
+                                          <children>
+                                             <Button mnemonicParsing="false" text="Tallennä / Lisää uusi">
+                                                <HBox.margin>
+                                                   <Insets right="10.0" />
+                                                </HBox.margin>
+                                             </Button>
+                                             <Button mnemonicParsing="false" text="Poista">
+                                                <HBox.margin>
+                                                   <Insets left="10.0" right="10.0" />
+                                                </HBox.margin>
+                                             </Button>
+                                          </children>
+                                          <VBox.margin>
+                                             <Insets top="15.0" />
+                                          </VBox.margin>
+                                       </HBox>
+                                    </children>
+                                 </VBox>
+                              </children>
+                              <padding>
+                                 <Insets left="20.0" right="20.0" top="20.0" />
+                              </padding>
+                           </VBox>
+                        </children>
+                     </HBox>
+                  </children>
+               </AnchorPane>
+            </content>
+         </Tab>
+         <Tab text="Laskujen hallinta">
+            <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <HBox alignment="CENTER_LEFT" prefHeight="621.0" prefWidth="856.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                           <VBox prefHeight="200.0" prefWidth="450.0" style="-fx-padding: 20;" styleClass="asiakas_text-field">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Laskut">
+                                    <font>
+                                       <Font size="20.0" />
+                                    </font>
+                                 </Text>
+                                 <TextField text="Haku laskuille">
+                                    <VBox.margin>
+                                       <Insets top="20.0" />
+                                    </VBox.margin>
+                                 </TextField>
+                                 <ListView prefHeight="530.0" prefWidth="409.0">
+                                    <VBox.margin>
+                                       <Insets top="10.0" />
+                                    </VBox.margin>
+                                 </ListView>
+                              </children>
+                              <padding>
+                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                              </padding>
+                           </VBox>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="646.0" stroke="#d7d6d6" strokeType="INSIDE" width="2.0" />
+                           <VBox prefHeight="200.0" prefWidth="450.0">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Laskun tiedot">
+                                    <font>
+                                       <Font size="20.0" />
+                                    </font>
+                                    <VBox.margin>
+                                       <Insets bottom="20.0" />
+                                    </VBox.margin>
+                                 </Text>
+                                 <VBox prefHeight="522.0" prefWidth="409.0">
+                                    <children>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Asiakas">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <TextField editable="false">
+                                          <opaqueInsets>
+                                             <Insets bottom="15.0" />
+                                          </opaqueInsets>
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <HBox prefHeight="50.0" prefWidth="409.0">
+                                          <children>
+                                             <VBox prefHeight="59.0" prefWidth="203.0">
+                                                <children>
+                                                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sähköpostiosoite" wrappingWidth="97.1015625">
+                                                      <VBox.margin>
+                                                         <Insets bottom="5.0" />
+                                                      </VBox.margin>
+                                                   </Text>
+                                                   <TextField prefWidth="193.0">
+                                                      <VBox.margin>
+                                                         <Insets bottom="10.0" />
+                                                      </VBox.margin>
+                                                   </TextField>
+                                                </children>
+                                                <HBox.margin>
+                                                   <Insets right="20.0" />
+                                                </HBox.margin>
+                                             </VBox>
+                                             <VBox prefHeight="57.0" prefWidth="210.0">
+                                                <children>
+                                                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Puhelinnumero" wrappingWidth="97.1015625">
+                                                      <VBox.margin>
+                                                         <Insets bottom="5.0" />
+                                                      </VBox.margin>
+                                                   </Text>
+                                                   <TextField />
+                                                </children>
+                                             </VBox>
+                                          </children>
+                                       </HBox>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Päivämäärä">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <TextField>
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Laskun tieto rivit">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <TextArea prefHeight="126.0" prefWidth="409.0" text="Esim!&#10;Tilavaraus 2h - 40€&#10;Lisäpalvelu Kahvitus - 20€&#10;Lisäpalvelu Tietokone - 20€">
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextArea>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Yhteissumma">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <TextField>
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Laskun tila">
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                       </Text>
+                                       <ChoiceBox fx:id="laskuntilaChoice" prefWidth="150.0" />
+                                       <HBox prefHeight="39.0" prefWidth="403.0">
+                                          <children>
+                                             <Button mnemonicParsing="false" text="Tallennä / Lisää uusi">
+                                                <HBox.margin>
+                                                   <Insets right="10.0" />
+                                                </HBox.margin>
+                                             </Button>
+                                             <Button mnemonicParsing="false" text="Poista">
+                                                <HBox.margin>
+                                                   <Insets left="10.0" right="10.0" />
+                                                </HBox.margin>
+                                             </Button>
+                                             <Button mnemonicParsing="false" text="Tulosta Pdf">
+                                                <HBox.margin>
+                                                   <Insets left="10.0" right="10.0" />
+                                                </HBox.margin>
+                                             </Button>
+                                          </children>
+                                          <VBox.margin>
+                                             <Insets top="15.0" />
+                                          </VBox.margin>
+                                       </HBox>
+                                    </children>
+                                 </VBox>
+                              </children>
+                              <padding>
+                                 <Insets left="20.0" right="20.0" top="20.0" />
+                              </padding>
+                           </VBox>
+                        </children>
+                     </HBox>
+                  </children>
+               </AnchorPane>
+            </content>
+         </Tab>
+        <Tab text="Raportointi">
+           <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                 <children>
+                    <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Toimitilojen varauksien raportti">
+                       <font>
+                          <Font size="21.0" />
+                       </font>
+                    </Text>
+                    <HBox layoutX="14.0" layoutY="60.0" prefHeight="32.0" prefWidth="610.0">
+                       <children>
+                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alku pvm." wrappingWidth="84.53668212890625">
+                             <font>
+                                <Font size="18.0" />
+                             </font>
+                          </Text>
+                          <TextField prefHeight="26.0" prefWidth="173.0" text="Aloitus pvm tähän">
+                             <HBox.margin>
+                                <Insets left="5.0" />
+                             </HBox.margin>
+                          </TextField>
+                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loppu pvm.">
+                             <font>
+                                <Font size="18.0" />
+                             </font>
+                             <HBox.margin>
+                                <Insets left="20.0" />
+                             </HBox.margin>
+                          </Text>
+                          <TextField text="Loppu pvm tähän">
+                             <HBox.margin>
+                                <Insets left="5.0" />
+                             </HBox.margin>
+                          </TextField>
+                       </children>
+                    </HBox>
+                    <HBox layoutX="14.0" layoutY="92.0" prefHeight="38.0" prefWidth="538.0">
+                       <children>
+                          <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="87.0" text="Tulosta">
+                             <font>
+                                <Font size="18.0" />
+                             </font>
+                          </Button>
+                       </children>
+                    </HBox>
+                    <HBox layoutX="14.0" layoutY="280.0" prefHeight="32.0" prefWidth="610.0">
+                       <children>
+                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alku pvm." wrappingWidth="84.53668212890625">
+                             <font>
+                                <Font size="18.0" />
+                             </font>
+                          </Text>
+                          <TextField prefHeight="26.0" prefWidth="173.0" text="Aloitus pvm tähän">
+                             <HBox.margin>
+                                <Insets left="5.0" />
+                             </HBox.margin>
+                          </TextField>
+                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loppu pvm.">
+                             <font>
+                                <Font size="18.0" />
+                             </font>
+                             <HBox.margin>
+                                <Insets left="20.0" />
+                             </HBox.margin>
+                          </Text>
+                          <TextField text="Loppu pvm tähän">
+                             <HBox.margin>
+                                <Insets left="5.0" />
+                             </HBox.margin>
+                          </TextField>
+                       </children>
+                    </HBox>
+                    <Text layoutX="14.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laitteiden ja lisäpalveluiden raportti">
+                       <font>
+                          <Font size="21.0" />
+                       </font>
+                    </Text>
+                    <HBox layoutX="14.0" layoutY="312.0" prefHeight="38.0" prefWidth="538.0">
+                       <children>
+                          <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="87.0" text="Tulosta">
+                             <font>
+                                <Font size="18.0" />
+                             </font>
+                          </Button>
+                       </children>
+                    </HBox>
+                 </children>
+              </AnchorPane>
+           </content>
+        </Tab>
+     </tabs>
+   </TabPane>
+</VBox>
